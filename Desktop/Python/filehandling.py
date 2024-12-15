@@ -1,6 +1,6 @@
 import csv
 
-def read_songs(songs):
+def read_songs(file_path):
     try:
         with open("songs.csv", mode="r")as file:
             reader = csv.DictReader(file)
@@ -11,7 +11,7 @@ def read_songs(songs):
     
 def filter_by_genere(songs, genere):
     """Filters the list of songs by genre."""
-    return [song for song in songs if song['genre'].lower() == genre.lower()]
+    return [song for song in songs if song['Genre'].lower() == genere.lower()]
 
 def filter_by_duration(songs, max_duration):
     """Filters songs by a maximum duration in minutes."""
@@ -32,12 +32,15 @@ def display_songs(songs):
         print("No songs found.")
     else:
         for song in songs:
-            print(f"Title: {song['title']}, Artist: {song['artist']}, Genre: {song['genre']}, Duration: {song['duration']} min")
+            print(f"Title: {song['Title']}, Artist: {song['Artist']}, Genre: {song['Genre']}, Duration: {song['Duration']} min")
 
 ##############
+
 def main():
     file_path = "songs.csv"
-    songs = read_songs(r"C:\Users\LENOVO\Desktop\Python\songs.csv")
+    songs = read_songs(file_path)
+
+    
     if not songs :
         return
     
@@ -50,8 +53,8 @@ def main():
         choice = input("Enter your choice (1/2/3): ").strip()
         
         if choice == "1":
-            genre = input("Enter the genre to filter by: ").strip()
-            filtered_songs = filter_by_genere(songs, genre)
+            genere = input("Enter the genre to filter by: ").strip()
+            filtered_songs = filter_by_genere(songs, genere)
             display_songs(filtered_songs)
 
         elif choice == "2":
