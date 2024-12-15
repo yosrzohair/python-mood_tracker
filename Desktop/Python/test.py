@@ -36,10 +36,10 @@ def main():
     # Step 1: Get mood input for each day of the week
     moods = get_mood_for_week()
     
-    # Step 2: Calculate the percentage of each mood
+    # Step 2:Calculate the percentage of each mood
     mood_percentages = calculate_mood_percentage(moods)
     
-    # Step 3: Display the mood summary
+    # Step 3 : Display the mood summary
     mood_summary(mood_percentages)
 
 if __name__ == "__main__":

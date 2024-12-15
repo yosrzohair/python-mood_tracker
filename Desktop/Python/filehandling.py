@@ -2,7 +2,7 @@ import csv
 
 def read_songs(file_path):
     try:
-        with open("songs.csv", mode="r")as file:
+        with open(file_path, mode="r")as file:
             reader = csv.DictReader(file)
             return list(reader) 
     except  FileNotFoundError:
@@ -37,7 +37,7 @@ def display_songs(songs):
 ##############
 
 def main():
-    file_path = "songs.csv"
+    file_path = input("Enter your song file path here:(csv file) ")
     songs = read_songs(file_path)
 
     
